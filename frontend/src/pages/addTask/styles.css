@@ -1,0 +1,119 @@
+.register-container  {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-container h1 {
+    margin-right: 120px;
+}
+
+.register-inputs {
+    display: grid;
+}
+
+.register-inputs input {
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.select-grid {
+    border: 0px;
+    outline: 0px;
+    scroll-behavior: smooth;
+    margin-bottom: 30px;
+}
+
+.header {
+    background-color: #FFF;
+    text-align: center;
+    padding: 20px;
+}
+
+.header ul {
+    margin-top: 30px;
+}
+
+.header ul li {
+    width: 100%;
+    max-width: 200px;
+    background-color: #0074D9;
+    color: white;
+    display: inline;
+    margin: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.item {
+    background-color: #FFF;
+    margin: 40px;
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.item .title  {
+    font-size: 25px;
+    font-weight: bold;
+    color: #222;
+}
+
+.item .desc {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.tasksDiv {
+    display: flex;
+}
+
+.item button {
+    cursor: pointer;
+}
+
+.addTask-container {
+    background-color: #FFF;
+    margin: 0 auto;
+    padding: 30px;
+    width: 100%;
+    max-width: 1120px;
+    margin-top: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.addTaskInfo {
+    display: grid;
+}
+
+.addTaskInfo p {
+    margin-bottom: 20px;
+}
+
+.addTaskInfo input {
+    margin-bottom: 20px;
+}
+
+.addTaskInfo button {
+    margin-top: 20px;
+}
+
+.logoutitle {
+    color: #444;
+    font-size: 20px;
+    cursor: pointer;
+}
