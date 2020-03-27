@@ -1,0 +1,15 @@
+.listregister3em {
+    background-color: #FFF;
+    margin-top: 30px;
+    padding: 40px;
+}
+
+.listregister3em h2 {
+    margin-bottom: 30px;
+}
+
+.listregister3em ul li {
+    list-style-type: none;
+    display: inline;
+    margin-left: 40px;
+}
