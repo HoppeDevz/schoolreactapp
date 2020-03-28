@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import api from '../../../services/api';
+import imgLogo from '../../assets/logo.png';
 
 export default function Logon() {
 
@@ -35,6 +36,7 @@ export default function Logon() {
 
     return(
         <View style={styles.logincontainer}>
+            <Image  source={imgLogo} />
             <Text style={styles.titlelogin}> <Feather name="log-in" size={16} color="#222" /> Fazer login</Text>
             <View style={styles.divinputs}>
                 <TextInput placeholder="Email" textContentType="emailAddress" value={email} onChangeText={(text) => setEmail(text)} style={styles.setvalues} />

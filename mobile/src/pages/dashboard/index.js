@@ -22,7 +22,7 @@ export default function Dashboard() {
     useEffect(() => {
         api.post("/getTasksByGrid", { grid: user_info.grid } ) 
         .then(response => {
-            //alert(response.data.data[0].id)
+
             setTasks(response.data.data)
         }).catch(err => {
             alert(false)
@@ -54,6 +54,9 @@ export default function Dashboard() {
 
                     <Text style={styles.titletask}>Valor:</Text>
                     <Text style={styles.desctask}>{tasks.value}</Text>
+
+                    <Text style={styles.titletask}>Enviado por:</Text>
+                    <Text style={styles.desctask}>{tasks.account_name}</Text>
 
                     <TouchableOpacity>
                         <Text style={styles.taskButtonDetail}>Ver Detalhes</Text>

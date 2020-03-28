@@ -8,6 +8,7 @@ export default StyleSheet.create({
         margin: 30,
         borderColor: "rgba(0, 0, 0, 0.1)",
         borderWidth: 1,
+        borderRadius: 8,
     },
 
     titlelogin: {

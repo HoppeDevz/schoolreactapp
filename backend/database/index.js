@@ -124,12 +124,34 @@ exports.deleteTask = (id) => {
 exports.getTasksByGrid = (grid) => {
     return new Promise((resolve, reject) => {
         con.query(`SELECT * FROM tasks WHERE grid = "${grid}"`, (error, results, fields) => {
+            var data = results
             if (error) {
                 reject(error)
                 console.log(error)
             } else {
-                if (results) {
-                    resolve(results)
+                if (data) {
+                    con.query(`SELECT * FROM admin_accounts`, (error, results, fields) => {
+                        var admin_accounts = results
+                        //console.log(admin_accounts)
+                        var response = []
+                        data.map(key => {
+                            var key_id = key.account_posted
+                            //console.log(key_id)
+                            for ( var i = 0; i <= admin_accounts.length; i++ ) {
+                                if (admin_accounts[i]) {
+                                    if (admin_accounts[i].id == key_id ) {
+                                        key.account_name = admin_accounts[i].username
+                                        response.push(key)
+                                        console.log(response)
+                                        if ( i == admin_accounts.length - 1) {
+                                            resolve(response)
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                    });
+                    //resolve(data)
                 }
             }
         })
