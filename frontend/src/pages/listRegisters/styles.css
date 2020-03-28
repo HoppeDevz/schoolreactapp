@@ -13,3 +13,12 @@
     display: inline;
     margin-left: 40px;
 }
+
+.userinfo {
+    margin-bottom: 50px;
+}
+
+.userinfo button {
+    margin-left: 40px;
+    cursor: pointer;
+}

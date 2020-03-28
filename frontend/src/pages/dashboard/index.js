@@ -20,8 +20,92 @@ export default function Register() {
     function RegisterHandler(e) {
         e.preventDefault()
         //console.log()
+
+        const default_bill = {
+            data : [
+
+                {
+                    id: 1,
+                    math: 0,
+                    physical: 0,
+                    chemistry: 0,
+
+                    philosophy: 0,
+                    sociology: 0,
+                    essay: 0,
+
+                    physical_education: 0,
+
+                    portuguese: 0,
+                    literature: 0,
+                    english: 0,
+                    biology: 0,
+                },
+
+                {
+                    id: 2,
+                    math: 0,
+                    physical: 0,
+                    chemistry: 0,
+
+                    philosophy: 0,
+                    sociology: 0,
+                    essay: 0,
+
+                    physical_education: 0,
+
+                    portuguese: 0,
+                    literature: 0,
+                    english: 0,
+                    biology: 0,
+                },
+
+                {
+                    id: 3,
+                    math: 0,
+                    physical: 0,
+                    chemistry: 0,
+
+                    philosophy: 0,
+                    sociology: 0,
+                    essay: 0,
+
+                    physical_education: 0,
+
+                    portuguese: 0,
+                    literature: 0,
+                    english: 0,
+                    biology: 0,
+                },
+
+                {
+                    id: 4,
+                    math: 0,
+                    physical: 0,
+                    chemistry: 0,
+
+                    philosophy: 0,
+                    sociology: 0,
+                    essay: 0,
+
+                    physical_education: 0,
+
+                    portuguese: 0,
+                    literature: 0,
+                    english: 0,
+                    biology: 0,
+                }
+
+            ]
+
+        }
+
+        //const default_bill = '[{ "math": 0,"physical": 0,"chemistry": 0,"philosophy": 0,"sociology": 0,"essay": 0,"physical_education": 0,"portuguese": 0,"literature": 0,"english": 0,"biology": 0,}]'
+
+        const bill = JSON.stringify(default_bill)
+
         const data = {
-            name, lastname, password, user_email, grid
+            name, lastname, password, user_email, grid, bill
         }
 
         if (name != '' && lastname != '' && password != '' && user_email != '' &&  grid != '' ) {

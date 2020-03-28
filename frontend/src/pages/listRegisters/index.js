@@ -69,6 +69,10 @@ export default function Register() {
         //test
     }
 
+    function BillHandler(id) {
+        history.push(`/billAccount/${id}`)
+    }
+
     return (
         <div>
 
@@ -87,8 +91,10 @@ export default function Register() {
             <ul>
                 {users3em.map(user  => (
                     <div className='userinfo'>
+                        <li>ID:{user.id}</li>
                         <li>{user.name + ' ' + user.lastname}</li>
                         <li>{user.user_email}</li>
+                        <button className='buttonbill' onClick={() => BillHandler(user.id)} >Ver boletim</button>
                     </div>
                 ))}
             </ul>
@@ -99,6 +105,7 @@ export default function Register() {
             <ul>
                 {users2em.map(user  => (
                     <div className='userinfo'>
+                        <li>{user.id}</li>
                         <li>{user.name + ' ' + user.lastname}</li>
                         <li>{user.user_email}</li>
                     </div>
@@ -111,6 +118,7 @@ export default function Register() {
             <ul>
                 {users1em.map(user  => (
                     <div className='userinfo'>
+                        <li>ID:{user.id}</li>
                         <li>{user.name + ' ' + user.lastname}</li>
                         <li>{user.user_email}</li>
                     </div>

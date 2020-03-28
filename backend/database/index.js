@@ -24,7 +24,7 @@ exports.CreateNewAccount = (data) => {
 
     return new Promise((resolve, reject) => {
 
-    const { name, lastname, password, user_email, grid } = data
+    const { name, lastname, password, user_email, grid, bill } = data
     
     con.query(`SELECT * FROM users_account`, (error, results, fields) => {
         var exist_account = false
@@ -36,9 +36,8 @@ exports.CreateNewAccount = (data) => {
                 }
             }
         }
-    
 
-    
+    console.log(JSON.parse(data.bill))
 
     const hash_password = bcrypt.hashSync(password, 10)
     const newdata = {
@@ -46,7 +45,7 @@ exports.CreateNewAccount = (data) => {
     }
     
     if (!exist_account) {
-        con.query(`INSERT INTO users_account (name, lastname, password, user_email, grid) VALUES ("${name}", "${lastname}", "${hash_password}", "${user_email}", "${grid}")`);
+        con.query(`INSERT INTO users_account (name, lastname, password, user_email, grid, bill) VALUES ("${name}", "${lastname}", "${hash_password}", "${user_email}", "${grid}", '${bill}' )`);
 
 
         resolve("CreatedAccountSucess")
@@ -211,5 +210,197 @@ exports.getTasksById = (id) => {
             resolve(results)
             console.log(results)
         });
+    })
+}
+
+exports.getBillFromId = (id) => {
+    return new Promise((resolve,reject) => {
+        if (id == NaN || id == '' || id == null) {
+            resolve([])
+        } else {
+            con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                if (error) {
+                    reject(error)
+                    console.log(error)
+                }
+    
+                //console.log(JSON.parse(results[0].bill))
+                resolve(JSON.parse(results[0].bill))
+            });
+        }
+        
+    })
+}
+
+exports.changeBillNotes = (data) => {
+    return new Promise((resolve,reject) => {
+        const { id, bill_id, discipline, value } = data
+        if (id && bill_id && discipline && value) {
+            if (discipline == "math") {
+                con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                    const bill = JSON.parse(results[0].bill)
+    
+                    bill.data[bill_id - 1].math = value
+    
+                    const bill_string = JSON.stringify(bill)
+    
+                    con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                    resolve(true)
+                })
+            } else {
+                if (discipline == "physical") {
+
+                    con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                        const bill = JSON.parse(results[0].bill)
+        
+                        bill.data[bill_id - 1].physical = value
+        
+                        const bill_string = JSON.stringify(bill)
+        
+                        con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                        resolve(true)
+                    })
+
+                } else {
+                    if ( discipline == "chemistry" ) {
+
+                        con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                            const bill = JSON.parse(results[0].bill)
+            
+                            bill.data[bill_id - 1].chemistry = value
+            
+                            const bill_string = JSON.stringify(bill)
+            
+                            con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                            resolve(true)
+                        })
+
+                    } else {
+                        if ( discipline == "philosophy" ) {
+
+                            con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                const bill = JSON.parse(results[0].bill)
+                
+                                bill.data[bill_id - 1].philosophy = value
+                
+                                const bill_string = JSON.stringify(bill)
+                
+                                con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                resolve(true)
+                            })  
+
+                        } else {
+                            if ( discipline == "sociology" ) {
+
+                                con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                    const bill = JSON.parse(results[0].bill)
+                    
+                                    bill.data[bill_id - 1].sociology = value
+                    
+                                    const bill_string = JSON.stringify(bill)
+                    
+                                    con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                    resolve(true)
+                                })
+
+                            } else {
+                                if ( discipline == "essay" ) {
+
+                                    con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                        const bill = JSON.parse(results[0].bill)
+                        
+                                        bill.data[bill_id - 1].essay = value
+                        
+                                        const bill_string = JSON.stringify(bill)
+                        
+                                        con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                        resolve(true)
+                                    })
+
+                                } else {
+                                    if ( discipline ==  "physical_education" ) {
+
+                                        con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                            const bill = JSON.parse(results[0].bill)
+                            
+                                            bill.data[bill_id - 1].physical_education = value
+                            
+                                            const bill_string = JSON.stringify(bill)
+                            
+                                            con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                            resolve(true)
+                                        })
+
+                                    } else {
+                                        if ( discipline == "portuguese" ) {
+
+                                            con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                                const bill = JSON.parse(results[0].bill)
+                                
+                                                bill.data[bill_id - 1].portuguese = value
+                                
+                                                const bill_string = JSON.stringify(bill)
+                                
+                                                con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                                resolve(true)
+                                            })
+
+                                        } else {
+                                            if ( discipline == "literature" ) {
+
+                                                con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                                    const bill = JSON.parse(results[0].bill)
+                                    
+                                                    bill.data[bill_id - 1].literature = value
+                                    
+                                                    const bill_string = JSON.stringify(bill)
+                                    
+                                                    con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                                    resolve(true)
+                                                })
+
+                                            } else {
+                                                if ( discipline == "english" ) {
+
+                                                    con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                                        const bill = JSON.parse(results[0].bill)
+                                        
+                                                        bill.data[bill_id - 1].english = value
+                                        
+                                                        const bill_string = JSON.stringify(bill)
+                                        
+                                                        con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                                        resolve(true)
+                                                    })
+
+                                                } else {
+                                                    if ( discipline == "biology" ) {
+                                                        
+                                                        con.query(`SELECT bill FROM users_account WHERE id = ${id}`, (error, results, fields) => {
+                                                            const bill = JSON.parse(results[0].bill)
+                                            
+                                                            bill.data[bill_id - 1].biology = value
+                                            
+                                                            const bill_string = JSON.stringify(bill)
+                                            
+                                                            con.query(`UPDATE users_account SET bill = '${bill_string}' WHERE id = ${id} `)
+                                                            resolve(true)
+                                                        })
+
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            reject(false)
+        }
+        
     })
 }

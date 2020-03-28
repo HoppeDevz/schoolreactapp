@@ -1,0 +1,14 @@
+.changebillnotes {
+    display: inline-block;
+    background-color: #fff;
+    margin: 40px;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    align-items: center;
+}
+
+.changebillnotes button {
+    margin-top: 10px;
+}

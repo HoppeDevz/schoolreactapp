@@ -14,9 +14,10 @@ router.post('/createAccount', (req, res) => {
     const password = req.body.password
     const user_email = req.body.user_email
     const grid = req.body.grid
+    const bill = req.body.bill
 
     const data = {
-        name, lastname, password, user_email, grid
+        name, lastname, password, user_email, grid, bill
     }
 
     database.CreateNewAccount(data).then(response => {
@@ -172,6 +173,39 @@ router.post("/getTasksById", (req, res) => {
     })
 
 });
+
+router.post("/getBillFromId", (req, res) => {
+    const { id } = req.body
+    database.getBillFromId(id)
+    .then(data => {
+        res.status(200).send({
+            data
+        })
+    })
+    .catch(err => {
+        res.status(400).send({
+            err
+        })
+    })
+})
+
+router.post("/changeBillNotes", (req, res) => {
+    const data = {
+        id: req.body.id , bill_id: req.body.bill_id, discipline: req.body.discipline, value: req.body.value
+    }
+
+    database.changeBillNotes(data)
+    .then(response => {
+        res.status(200).send({
+            changed_note: true
+        })
+    }).catch(err => {
+        res.status(400).send({
+            changed_note: false,
+            error: true
+        })
+    })
+})
 
 module.exports = router
 

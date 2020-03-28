@@ -1,0 +1,54 @@
+.billinfo {
+    background-color: #FFF;
+    margin: 40px;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    max-width: 200px;
+}
+
+.billinfo h1 {
+    color: #111;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.billinfo h2 {
+    color: #111;
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+.billinfo h3 {
+    color: #444;
+    font-size: 12px;
+}
+
+.titlebimestry {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 300;
+}
+
+.titlebimestry strong {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.billnote {
+    display: grid;
+    text-align: center;
+    padding: 20px;
+}
+
+.titlebill {
+    margin-right: 200px;
+}
+
+.billnote h3 input {
+    max-width: 40px;
+}

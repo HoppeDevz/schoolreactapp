@@ -26,6 +26,7 @@ export default StyleSheet.create({
     },
 
     titleTask: {
+        marginTop: 200,
         fontWeight: "bold",
         fontSize: 20,
         backgroundColor: "#0074D9",
@@ -62,5 +63,25 @@ export default StyleSheet.create({
         borderRadius: 2,
         paddingBottom: 3,
         paddingTop: 3,
+    },
+
+    header: {
+        display: "flex",
+        textAlign: "center",
+        marginLeft: 30,
+    },
+
+    billContainer: {
+        backgroundColor: "#FFF",
+        margin: 10,
+        borderRadius: 8,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: "rgba(0, 0, 0, 0.1)",
+    },
+
+    billtext: {
+        textAlign: "center",
+        fontWeight: "bold",
     },
 })

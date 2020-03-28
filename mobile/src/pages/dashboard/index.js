@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, Image } from 'react-native';
 import { useState, useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import styles from './styles';
 import api from '../../../services/api';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
+import ImgLogo from '../../assets/logo.png';
 
 export default function Dashboard() {
     const route = useRoute();
@@ -17,6 +18,10 @@ export default function Dashboard() {
 
     function reloadPage() {
         navigation.navigate("Dashboard", user_info)
+    }
+
+    function NavBillHandler() {
+        navigation.navigate("Boletim", {id: user_info.id})
     }
 
     useEffect(() => {
@@ -31,10 +36,20 @@ export default function Dashboard() {
 
     return(
         <View >
+
             <View style={styles.dasboardHeader} >
             <Text style={styles.dashboardText}>Olá {user_info.name} {user_info.lastname} =) </Text>
-            <Text style={ styles.descriptionText }>Aqui você pode ver algumas de suas tarefas a serem feitas, com suas respectivas informações como: título, descrição e valor</Text>
+            <Text style={ styles.descriptionText }>Aqui você pode ver algumas coisas como por exemplo seu boletim e suas tarefas a serem feitas, com suas respectivas informações como: título, descrição e valor</Text>
             </View>
+
+            <TouchableOpacity style={styles.billContainer} onPress={NavBillHandler} >
+                <Text style={styles.billtext}>Ver Boletim</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.billContainer} >
+                <Text style={styles.billtext}>Ver Tarefas</Text>
+            </TouchableOpacity>
+
 
             <View>
                 <Text style={styles.titleTask} > <Feather name="repeat" size={16} color="#FFF" /> Tarefas: {tasks.length}</Text>
