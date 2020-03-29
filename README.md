@@ -6,7 +6,7 @@ Comecei este projeto afim de treinar minhas habilidades com essa stack
 1- Configurando o banco de dados:
 - [x] Baixe o XAMPP e inicie o mySQL
 - [x] Crie um banco de dados chamado: "school"
-- [x] Execute o arquivo .sql disponível neste link: [Vou colocar ainda]
+- [x] Execute o arquivo .sql disponível neste link: [Arquivo sql](https://pages.github.com/).
 - [x] Crie um arquivo .env no diretorio __dirname/backend
 - [x] Configure as seguintes credenciais:
  
