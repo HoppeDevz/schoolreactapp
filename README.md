@@ -1,7 +1,8 @@
-# schoolreactapp
+# ColibriApp
 ## Um app desenvolvido desenvolvido com mySQL no back-end, reactJS no front-end e react-native no mobile
 Comecei este projeto afim de treinar minhas habilidades com essa stack
 
+##### Configurando o Back-End
 1- Configurando o banco de dados:
 - [x] Baixe o XAMPP e inicie o mySQL
 - [x] Crie um banco de dados chamado: "school"
