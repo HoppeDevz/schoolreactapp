@@ -5,20 +5,33 @@ export default StyleSheet.create({
     dasboardHeader: {
         backgroundColor: "#FFF",
         margin: 10,
-        borderWidth: 1,
         borderColor: "rgba(0, 0, 0, 0.1)",
         borderRadius: 8,
     },
 
-    dashboardText: {
-        fontWeight: "bold",
-        fontSize: 15,
+    dashboardContainer: {
         paddingLeft: 30,
         paddingRight: 30,
         paddingTop: 30,
+        paddingBottom: 30,
+    },
+
+    dashboardHeaderContainer: {
+        flexDirection: "row",
+    },
+
+    helloTitle: {
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+
+    helloName: {
+        fontSize: 15,
+        color: "#555",
     },
 
     descriptionText: {
+        paddingTop: 30,
         paddingLeft: 30,
         paddingRight: 30,
         paddingBottom: 30,
@@ -72,16 +85,20 @@ export default StyleSheet.create({
     },
 
     billContainer: {
-        backgroundColor: "#FFF",
+        backgroundColor: "#0074D9",
         margin: 10,
         borderRadius: 8,
         padding: 10,
-        borderWidth: 1,
-        borderColor: "rgba(0, 0, 0, 0.1)",
     },
 
     billtext: {
         textAlign: "center",
         fontWeight: "bold",
+        color: "#FFF",
+    },
+
+    buttoncontainer: {
+        flexDirection: "row",
+        marginLeft: 5,
     },
 })

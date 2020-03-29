@@ -207,5 +207,31 @@ router.post("/changeBillNotes", (req, res) => {
     })
 })
 
+router.post("/changeAvatarURL", (req, res) => {
+    const data = {
+        id: req.body.id,
+        uri: req.body.uri
+    }
+
+    console.log(data)
+
+    const { id, uri } = data
+
+    database.changeAvatarURL(data)
+    .then(response => {
+        res.status(200).send({
+            changed_photo: true,
+            new_uri: uri
+        })
+    })
+    .catch(err => {
+        console.log(error)
+        res.status(400).send({
+            changed_photo: false,
+            error : true
+        })
+    })
+})
+
 module.exports = router
 

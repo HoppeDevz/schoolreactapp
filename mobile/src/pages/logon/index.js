@@ -41,10 +41,21 @@ export default function Logon() {
             <View style={styles.divinputs}>
                 <TextInput placeholder="Email" textContentType="emailAddress" value={email} onChangeText={(text) => setEmail(text)} style={styles.setvalues} />
                 <TextInput placeholder="Senha" textContentType="password" value={password} onChangeText={(text) => setPassword(text)} style={styles.setvalues} />
-            </View>
+            </View>            
+
             <TouchableOpacity style={styles.button} onPress={SubmitHandler} >
                 <Text style={styles.buttonText} >Login</Text>
             </TouchableOpacity>
+
+            <View style={styles.alertDontHaveAccount}>
+                <Text style={styles.DontHaveAccountTitle} >Não possui uma conta?</Text>
+
+                <TouchableOpacity>
+                    <Text style={styles.DontHaveAccountValue} onPress={() => alert('Você deve pedir seu cadastro na secretaria da escola!')} >Clique aqui para saber mais</Text>
+                </TouchableOpacity>
+                
+            </View>
+
         </View>
     )
 }

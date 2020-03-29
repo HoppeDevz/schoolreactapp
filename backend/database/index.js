@@ -111,7 +111,7 @@ exports.getAccountInfo = (data) => {
 
 exports.createTask = (data) => {
     const { title, description, value, grid, account_posted } = data
-    con.query(`INSERT INTO tasks (title, description, value, grid, account_posted) VALUES ("${title}", "${description}", "${value}", "${grid}", "${account_posted}")`);
+    con.query(`INSERT INTO tasks (title, description, value, grid, account_posted, date) VALUES ("${title}", "${description}", "${value}", "${grid}", "${account_posted}", "${new Date().toLocaleDateString()}")`);
     return true
 }
 
@@ -402,5 +402,16 @@ exports.changeBillNotes = (data) => {
             reject(false)
         }
         
+    })
+}
+
+exports.changeAvatarURL = async (data) => {
+    return new Promise((resolve, reject) => {
+        let result = con.query(`UPDATE users_account SET avatarURL = "${data.uri}" WHERE id = ${data.id}`);
+        if (result) {
+            resolve(true)
+        } else {
+            reject(false)
+        }
     })
 }

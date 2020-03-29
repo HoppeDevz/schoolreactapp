@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Logon from './pages/logon';
 import Dashboard from './pages/dashboard';
 import BillDetails from './pages/BillDetails';
+import Tasks from './pages/TasksUser';
 
 const Appstack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export default function Routes() {
                 <Appstack.Screen name="Login" component={Logon} />
                 <Appstack.Screen name="Dashboard" component={Dashboard} />
                 <Appstack.Screen name="Boletim" component={BillDetails} />
+                <Appstack.Screen name="Tarefas" component={Tasks} />
             </Appstack.Navigator>
         </NavigationContainer>
     )
